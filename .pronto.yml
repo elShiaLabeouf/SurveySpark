@@ -1,0 +1,4 @@
+max_warnings: 50
+verbose: false
+git:
+  master: main
