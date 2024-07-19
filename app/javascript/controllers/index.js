@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import TooltipController from "./tooltip_controller"
 application.register("tooltip", TooltipController)
+
+import SurveysIndexController from "./surveys/index_controller"
+application.register("surveys--index", SurveysIndexController)

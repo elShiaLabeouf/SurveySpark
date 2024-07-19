@@ -69,5 +69,5 @@ Prerequisites:
 1. Fork the repository
 2. Create a new branch by a pattern `feature/<your-feature-name>` or `fix/<important-bug-name>`
 3. Add changes. Make sure you've attached tests that covered your changes
-4. Run linter with `pronto run -c main` and fix any found issues
+4. Run linter with `pronto run -c main` or `pronto run --unstaged` and fix any found issues
 5. Create a pull request to the `main` branch of the repository

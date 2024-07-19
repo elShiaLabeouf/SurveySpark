@@ -19,10 +19,6 @@ class SurveyResponsesController < ApplicationController
 
   private
 
-  def current_user
-    User.first
-  end
-
   def survey_response_params
     params.require(:survey_response).permit(:answer)
   end

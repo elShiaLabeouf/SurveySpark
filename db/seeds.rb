@@ -4,6 +4,7 @@ require "faker"
   User.create(name: Faker::Name.name)
 end
 
+# Uncomment the following code to seed the database with survey questions
 # [
 #   "Are you satisfied with the healthcare system in your country?",
 #   "Do you think more actions should be taken to combat climate change?",
