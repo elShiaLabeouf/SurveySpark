@@ -1,4 +1,4 @@
-tr class=local_assigns[:extra_class] data-survey-id=survey.id
+tr class=local_assigns[:extra_class] data-survey-id=survey.id data-surveys--index-target="surveyRow"
   td.col-8
     - survey.content.split("\n").each do |paragraph|
       p.survey-paragraph = paragraph

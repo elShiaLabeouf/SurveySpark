@@ -11,4 +11,4 @@ tr.survey-form-template#survey-form-template class=(expanded ? "collapse show" :
     = button_tag class: "btn btn-link btn-sm btn-survey-close", data: { "bs-toggle": "collapse", "bs-target": '#survey-form-template' }  do
       i.bi.bi-x-circle data-controller="tooltip" data-bs-toggle="tooltip" title="Close this form"
     - if local_assigns[:successful_submit]
-      .survey-form-success-message.ms-3 Successfully created!
+      .survey-form-success-message.ms-3 data-surveys--index-target="successSubmissionMessage" Successfully created!

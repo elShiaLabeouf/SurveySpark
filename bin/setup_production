@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+APP_ROOT = File.expand_path("..", __dir__)
+
+def system!(*args)
+  system(*args, exception: true)
+end
+
+FileUtils.chdir APP_ROOT do
+  puts "== Installing Ruby dependencies =="
+  system! "gem install bundler --conservative"
+  system!("bundle install --without development test")
+
+  puts "== Precompiling assets =="
+  system! "RAILS_ENV=production bin/rails assets:precompile"
+
+  puts "\n== Preparing database =="
+  system! "RAILS_ENV=production bin/rails db:create db:migrate"
+  system! "RAILS_ENV=production bin/rails runner \"User.create(name: 'Spark Admin')\"" # to create a user; should be removed after we have proper registration
+end

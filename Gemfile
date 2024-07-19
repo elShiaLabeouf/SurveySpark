@@ -36,6 +36,7 @@ group :development, :test do
   gem "byebug"
   gem "pry-rails"
   gem 'rspec-rails', '~> 6.1.0'
+  gem "faker"
 end
 
 group :development do
@@ -49,7 +50,6 @@ group :development do
 end
 
 group :test do
-  gem "faker"
   gem "capybara"
   gem "factory_bot"
   gem 'database_cleaner-active_record'

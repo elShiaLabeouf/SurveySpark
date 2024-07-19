@@ -52,7 +52,7 @@
     display: inline-block;
     color: var(--bs-success);
     filter: brightness(150%);
-    animation: successfully-created-animation 0.5s forwards;
+    animation: successfully-created-animation 0.3s forwards;
     animation-delay: 5s;
   }
 
@@ -116,6 +116,8 @@
 }
 
 .td-survey-results {
+  max-width: 300px;
+
   .progress-stacked {
     .progress:first-child {
       .progress-bar {
@@ -150,20 +152,19 @@
 }
 
 .fresh-survey-row {
-  animation: fresh-survey-row-animation 0.75s forwards;
-  animation-iteration-count: 3;
+  animation: fresh-survey-row-animation 0.5s forwards;
 }
 
 @keyframes fresh-survey-row-animation {
   0% {
-    filter: brightness(100%);
+    transform: scale(1.03);
   }
 
   50% {
-    filter: brightness(150%);
+    transform: scale(1.03);
   }
 
   100% {
-    filter: brightness(100%);
+    transform: scale(1);
   }
 }

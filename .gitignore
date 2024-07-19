@@ -46,3 +46,6 @@
 /survey_spark_test
 /survey_spark_test-shm
 /survey_spark_test-wal
+/survey_spark_production
+/survey_spark_production-shm
+/survey_spark_production-wal

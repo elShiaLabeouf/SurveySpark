@@ -1,10 +1,9 @@
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons";
+@import "surveys/index";
 
 $bg-main-black: #121212;
 $text-white: #fff;
-
-@import "surveys/index";
 
 body {
   background: $bg-main-black;

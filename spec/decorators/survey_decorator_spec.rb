@@ -70,4 +70,13 @@ RSpec.describe SurveyDecorator do
       end
     end
   end
+
+  describe "#set_context" do
+    describe "when any method is used without a context" do
+      it "raises an error" do
+        decorated = described_class.decorate(survey)
+        expect { decorated.current_answer_type_counter_truncatable? }.to raise_error("Context is not set. Please use #set_context")
+      end
+    end
+  end
 end

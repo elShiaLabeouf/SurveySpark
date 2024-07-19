@@ -52,7 +52,7 @@ feature "Creating a survey", type: :feature do
       expect(page).not_to have_content("Successfully created!")
       expect(page).not_to have_css(".fresh-survey-row", text: question)
       expect(page).to have_css("#new-survey-form")
-      expect(page).to have_css(".invalid-feedback", text: "A question shall not be blank 🙏")
+      expect(page).to have_css(".invalid-feedback", text: "A question can not be blank 🙏")
     end
   end
 end
