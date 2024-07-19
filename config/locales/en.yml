@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    attributes:
+      survey:
+        content: "A question"
+    errors:
+      models:
+        survey:
+          attributes:
+            content:
+              blank: "shall not be blank 🙏"

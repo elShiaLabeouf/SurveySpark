@@ -1,0 +1,14 @@
+tr.survey-form-template#survey-form-template class=(expanded ? "collapse show" : "collapse")
+  td.col-8
+    = turbo_frame_tag "survey-form-turbo-frame" do
+      = form_with model: new_survey, url: surveys_path, local: false, html: { id: "new-survey-form" } do |f|
+        = f.text_area :content, class: "form-control", placeholder: 'Enter your question here'
+        .invalid-feedback = new_survey.errors.full_messages_for(:content).join(", ")
+
+  td.col-4.align-middle colspan=2
+    = button_tag class: "btn btn-link btn-sm btn-survey-save", form: "new-survey-form" do
+      i.bi.bi-floppy data-controller="tooltip" data-bs-toggle="tooltip" title="Create a survey"
+    = button_tag class: "btn btn-link btn-sm btn-survey-close", data: { "bs-toggle": "collapse", "bs-target": '#survey-form-template' }  do
+      i.bi.bi-x-circle data-controller="tooltip" data-bs-toggle="tooltip" title="Close this form"
+    - if local_assigns[:successful_submit]
+      .survey-form-success-message.ms-3 Successfully created!

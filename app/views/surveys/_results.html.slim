@@ -1,0 +1,24 @@
+= turbo_frame_tag("survey-#{survey.id}-answer-results")
+  .survey-answers.d-flex.justify-content-between
+    - SurveyResponse.answers.each_key do |answer_type|
+      - survey.set_context(current_answer_type: answer_type)
+      .survey-answer
+        .survey-answer-percentage = "#{answer_type.humanize}: #{survey.percentage_data}"
+        .survey-answer-numeric[data-controller=(survey.current_answer_type_counter_truncatable? ? "tooltip" : "")
+          data-bs-toggle="tooltip"
+          title=survey.numeric_data]
+
+          = survey.numeric_data(truncate: true)
+
+  .d-flex
+    .progress-stacked.w-100.justify-content-center
+      - SurveyResponse.answers.each_key do |answer_type|
+        - survey.set_context(current_answer_type: answer_type)
+        .progress[role="progressbar"
+          aria-label="Segment #{answer_type}"
+          aria-valuenow=survey.percentage_data.sub('%', '')
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style="width: #{survey.percentage_data}"]
+
+          .progress-bar class="bg-#{answer_type}"

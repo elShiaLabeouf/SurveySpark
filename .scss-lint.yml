@@ -1,0 +1,21 @@
+scss_files: 'app/assets/stylesheets/**/*.scss'
+
+severity: warning
+
+linters:
+  # Used to ignore rules and be more flexible according to styleguide rules
+  PlaceholderInExtend:
+    enabled: false
+  StringQuotes:
+    style: double_quotes
+  PropertySortOrder:
+    enabled: false
+  NestingDepth:
+    max_depth: 4
+  SelectorDepth:
+    max_depth: 4
+  LeadingZero:
+    enabled: false
+  IdSelector:
+    enabled: false
+

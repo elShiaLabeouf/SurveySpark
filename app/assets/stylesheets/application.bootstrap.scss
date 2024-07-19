@@ -1,0 +1,173 @@
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+$bg-main-black: #121212;
+$text-white: #fff;
+
+body {
+  background: $bg-main-black;
+  color: $text-white;
+}
+
+.surveys-table {
+  thead {
+    position: sticky;
+    top: -1px;
+    z-index: 1;
+  }
+
+  .survey-paragraph {
+    min-height: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .td-content-sticky {
+    position: sticky;
+    top: 45px;
+  }
+
+  .no-surveys-caption {
+    display: none;
+  }
+}
+
+.survey-form-template {
+  .btn-survey-save {
+    margin-left: -8px;
+  }
+
+  .btn-survey-save,
+  .btn-survey-close {
+    font-size: 20px;
+  }
+
+  textarea {
+    line-height: 1;
+  }
+
+  + .no-surveys-caption {
+    min-height: 63px;
+    display: table-row;
+  }
+
+  .survey-form-success-message {
+    line-height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+    color: var(--bs-success);
+    filter: brightness(150%);
+    animation: successfully-created-animation 0.5s forwards;
+    animation-delay: 5s;
+  }
+
+  @keyframes successfully-created-animation {
+    0% {
+      filter: opacity(1) brightness(150%);
+    }
+
+    100% {
+      filter: opacity(0) brightness(100%);
+    }
+  }
+}
+
+.answer-options-container {
+  display: flex;
+  justify-content: space-around;
+
+  .btn-yes {
+    @extend .btn-info;
+  }
+
+  .btn-no {
+    @extend .btn-warning;
+  }
+}
+
+.survey-answers {
+  .survey-answer {
+    width: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1400px) {
+      .survey-answer-numeric {
+        max-width: 145px;
+      }
+    }
+
+    .survey-answer-numeric {
+      max-width: 140px;
+      overflow: hidden;
+    }
+
+    &:first-child {
+      align-items: start;
+      justify-content: left;
+    }
+
+    &:last-child {
+      align-items: end;
+      justify-content: right;
+
+      .survey-answer-numeric {
+        flex-direction: row-reverse;
+        display: flex;
+      }
+    }
+  }
+}
+
+.td-survey-results {
+  .progress-stacked {
+    .progress:first-child {
+      .progress-bar {
+        border-right: 1px solid var(--bs-border-color);
+      }
+    }
+
+    .progress-bar {
+      &.bg-yes {
+        @extend .bg-info;
+      }
+
+      &.bg-no {
+        @extend .bg-warning;
+      }
+    }
+  }
+}
+
+#new-survey-form {
+  // scss-lint:disable SelectorFormat MergeableSelector
+  .field_with_errors {
+    .form-control {
+      @extend .is-invalid;
+    }
+  }
+
+  .field_with_errors + .invalid-feedback {
+    display: block;
+  }
+  // scss-lint:enable SelectorFormat MergeableSelector
+}
+
+.fresh-survey-row {
+  animation: fresh-survey-row-animation 0.75s forwards;
+  animation-iteration-count: 3;
+}
+
+@keyframes fresh-survey-row-animation {
+  0% {
+    filter: brightness(100%);
+  }
+
+  50% {
+    filter: brightness(150%);
+  }
+
+  100% {
+    filter: brightness(100%);
+  }
+}
