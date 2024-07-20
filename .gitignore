@@ -51,3 +51,5 @@
 /survey_spark_production
 /survey_spark_production-shm
 /survey_spark_production-wal
+
+/config/credentials/production.key

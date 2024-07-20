@@ -13,13 +13,14 @@ Ensure you have the following installed on your system:
 
 ### Using Homebrew and rbenv
 
-1. **Install rbenv and Yarn**:
+0. **Install rbenv and Yarn**:
     ```bash
     brew install rbenv
     brew install yarn
     ```
+If you have any issues with the steps below, please retry with the following versions: rbenv 1.2.0, yarn 1.22.21
 
-2. **Install Ruby 3.2.0**:
+1. **Install Ruby 3.2.0**:
     ```bash
     rbenv install 3.2.0
     rbenv local 3.2.0
@@ -28,12 +29,12 @@ Ensure you have the following installed on your system:
    The last line should return the correct ruby version: `ruby 3.2.0 (2022-12-25 revision a528908271) [arm64-darwin22]`
 
 
-3. **Setup SurveySpark**:
+2. **Setup SurveySpark**:
     ```bash
     ./bin/setup
     ```
 
-4. **Start the server**:
+3. **Start the server**:
     - Using the `dev` script:
         ```bash
         ./bin/dev
@@ -44,7 +45,7 @@ Ensure you have the following installed on your system:
         yarn build --watch
         yarn watch:css
         ```
-5. http://localhost:3000/ should now be accessible in your browser.
+4. http://localhost:3000/ should now be accessible in your browser.
 
 ### Using Docker
 - **Coming soon!**
@@ -53,8 +54,8 @@ Ensure you have the following installed on your system:
 1. Install rbenv and Yarn
 2. Install Ruby 3.2.0
 3. Setup SurveySpark by running `./bin/setup_production`
-4. Run `bin/rails credentials:edit` to create `master.key`
-5. Run `RAILS_ENV=production bin/rails s`
+4. Run `RAILS_ENV=production bin/rails s`
+    - If you want to switch to development mode after working in production environment, run `rm -rf .bundle/` and follow the steps from `Installation and Running`
 
 ## Running Tests
 

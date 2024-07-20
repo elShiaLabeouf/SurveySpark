@@ -12,6 +12,8 @@ FileUtils.chdir APP_ROOT do
   system! "gem install bundler --conservative"
   system!("bundle install --without development test")
 
+  system!("bin/rails credentials:edit -e production")
+
   puts "== Precompiling assets =="
   system! "RAILS_ENV=production bin/rails assets:precompile"
 
