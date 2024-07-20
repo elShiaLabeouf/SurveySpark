@@ -87,14 +87,8 @@
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1400px) {
-      .survey-answer-numeric {
-        max-width: 145px;
-      }
-    }
-
     .survey-answer-numeric {
-      max-width: 140px;
+      width: 140px;
       overflow: hidden;
     }
 
