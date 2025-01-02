@@ -17,5 +17,10 @@ end
 #   "Do you find the cost of living in your area affordable?",
 #   "Do you believe there is social equality in your country?"
 # ].each do |question|
-#   Survey.create(content: question)
+#   Survey.create(content: Faker::Quote.yoda)
 # end
+quotes = %i[famous_last_words jack_handey matz most_interesting_man_in_the_world robin singular_siegler yoda mitch_hedberg]
+1_000_000_000.times do |i|
+  puts "================================================================= i: #{i}"
+  Survey.create(content: Faker::Quote.send(quotes.sample))
+end

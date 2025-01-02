@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :surveys, only: %i[new create] do
     resources :responses, only: %i[create], controller: "survey_responses"
   end
+
+  get "stream", to: "surveys#index_stream"
 end

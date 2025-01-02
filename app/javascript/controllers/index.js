@@ -9,3 +9,6 @@ application.register("tooltip", TooltipController)
 
 import SurveysIndexController from "./surveys/index_controller"
 application.register("surveys--index", SurveysIndexController)
+
+import SurveysIndexStreamController from "./surveys/index_stream_controller"
+application.register("surveys--index-stream", SurveysIndexStreamController)
