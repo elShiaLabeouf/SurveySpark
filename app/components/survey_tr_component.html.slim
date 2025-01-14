@@ -1,15 +1,15 @@
-tr class=local_assigns[:extra_class] data-survey-id=survey.id data-surveys--index-target="surveyRow"
+tr class=@extra_class data-survey-id=survey.id data-surveys--index-target="surveyRow"
   td.col-8
     - survey.content.split("\n").each do |paragraph|
       p.survey-paragraph = paragraph
   td.col-1
     .answer-options-container.td-content-sticky
       - SurveyResponse.answers.each_key do |answer|
-        = turbo_frame_tag "survey-#{survey.id}-answer-form-#{answer}" do
+        = tag.turbo_frame(id: "survey-#{survey.id}-answer-form-#{answer}") do
           = form_with model: SurveyResponse.new, url: survey_responses_path(survey_id: survey.id), local: false do |f|
             = f.hidden_field :answer, value: answer
             = f.submit answer.humanize, class: "btn btn-xs btn-#{answer}"
 
   td.col-3
     .td-content-sticky.td-survey-results
-      = render partial: "surveys/results", locals: { survey: survey }
+      = render(SurveyResultsComponent.new(survey: survey))

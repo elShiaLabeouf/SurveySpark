@@ -11,6 +11,9 @@ Ensure you have the following installed on your system:
 
 ## Installation and Running
 
+### Using Docker (preferred)
+- docker-compose up --build
+
 ### Using Homebrew and rbenv
 
 0. **Install rbenv and Yarn**:
@@ -46,9 +49,6 @@ If you have any issues with the steps below, please retry with the following ver
         yarn watch:css
         ```
 4. http://localhost:3000/ should now be accessible in your browser.
-
-### Using Docker
-- **Coming soon!**
 
 ## Running in Production
 1. Install rbenv and Yarn

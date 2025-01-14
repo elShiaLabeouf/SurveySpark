@@ -33,6 +33,9 @@ Layout/LineLength:
   Max: 140
 Layout/SpaceBeforeBrackets: # new in 1.7
   Enabled: true
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
 
 Lint/AmbiguousAssignment: # new in 1.7
   Enabled: true
@@ -285,6 +288,8 @@ Rails/FindById: # new in 2.7
   Enabled: true
 Rails/FreezeTime: # new in 2.16
   Enabled: true
+Style/FrozenStringLiteralComment:
+  Enabled: false
 Rails/I18nLazyLookup: # new in 2.14
   Enabled: true
 Rails/I18nLocaleAssignment: # new in 2.11

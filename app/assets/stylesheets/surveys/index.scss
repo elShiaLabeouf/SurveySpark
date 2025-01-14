@@ -5,6 +5,14 @@
   font-size: 14px;
 }
 
+.items-per-page-select-container {
+  justify-items: end;
+  align-items: center;
+  .items-per-page-select {
+    width: 160px;
+  }
+}
+
 .surveys-table {
   thead {
     position: sticky;

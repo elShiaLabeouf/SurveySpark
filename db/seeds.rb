@@ -4,23 +4,17 @@ require "faker"
   User.create(name: Faker::Name.name)
 end
 
-# Uncomment the following code to seed the database with survey questions
-# [
-#   "Are you satisfied with the healthcare system in your country?",
-#   "Do you think more actions should be taken to combat climate change?",
-#   "Are you satisfied with the quality of education in your country?",
-#   "Are you satisfied with the public transportation services in your city?",
-#   "Do you believe your government is effectively addressing major issues?",
-#   "Do you think there are enough job opportunities in your field?",
-#   "Are you satisfied with the speed and reliability of your internet connection?",
-#   "Do you feel safe in your neighborhood?",
-#   "Do you find the cost of living in your area affordable?",
-#   "Do you believe there is social equality in your country?"
-# ].each do |question|
-#   Survey.create(content: Faker::Quote.yoda)
-# end
-quotes = %i[famous_last_words jack_handey matz most_interesting_man_in_the_world robin singular_siegler yoda mitch_hedberg]
-1_000_000_000.times do |i|
-  puts "================================================================= i: #{i}"
-  Survey.create(content: Faker::Quote.send(quotes.sample))
+[
+  "Are you satisfied with the healthcare system in your country?",
+  "Do you think more actions should be taken to combat climate change?",
+  "Are you satisfied with the quality of education in your country?",
+  "Are you satisfied with the public transportation services in your city?",
+  "Do you believe your government is effectively addressing major issues?",
+  "Do you think there are enough job opportunities in your field?",
+  "Are you satisfied with the speed and reliability of your internet connection?",
+  "Do you feel safe in your neighborhood?",
+  "Do you find the cost of living in your area affordable?",
+  "Do you believe there is social equality in your country?"
+].each do |question|
+  Survey.create(content: questio)
 end

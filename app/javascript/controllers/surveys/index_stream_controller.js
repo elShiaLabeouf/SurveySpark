@@ -13,8 +13,8 @@ export default class extends Controller {
 
   handleMessage(event) {
     const eventData = JSON.parse(event.data)
-    const appendAfterElement = document.querySelector('#survey-form-template')
-    appendAfterElement.insertAdjacentHTML('afterend', eventData.table_row)
+    const appendAfterElement = document.querySelector('tr.no-surveys-caption')
+    appendAfterElement.insertAdjacentHTML('beforebegin', eventData.table_row)
     if (eventData.last_row) this.source.close()
   }
 }

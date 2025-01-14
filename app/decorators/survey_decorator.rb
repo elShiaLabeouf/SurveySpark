@@ -1,59 +1,47 @@
 # frozen_string_literal: true
 
 class SurveyDecorator < Draper::Decorator
-  include ActionView::Helpers::NumberHelper
-  TRUNCATE_THRESHOLD = 10_000_000_000
-
   delegate_all
 
-  def set_context(current_answer_type:)
-    @current_answer_type_counter = value_by_answer_type(current_answer_type)
-  end
-
-  def percentage_data
-    return format_percentage(0) if total_responses.zero?
-
-    format_percentage(current_answer_type_counter.to_f / total_responses * 100)
-  end
-
-  def numeric_data(truncate: false)
-    return "(#{truncated_current_answer_type_counter})" if truncate && current_answer_type_counter_truncatable?
-
-    "(#{number_with_delimiter(current_answer_type_counter)})"
-  end
-
-  def current_answer_type_counter_truncatable?
-    current_answer_type_counter >= TRUNCATE_THRESHOLD
+  def answers
+    @answers ||= SurveyResponse.answers.map do |answer_text, answer_enum|
+      value = value_by_answer_type(answer_enum)
+      {
+        answer_type: answer_text,
+        numeric_value: numeric_data(value),
+        truncated_numeric_value: truncated_numeric_data(value),
+        is_truncated: counter_truncated?(value),
+        percentage_value: percentage_data(value),
+        share_value: percentage_data(value).sub("%", "")
+      }
+    end
   end
 
   private
 
-  def current_answer_type_counter
-    raise "Context is not set. Please use #set_context" unless @current_answer_type_counter
+  def percentage_data(value)
+    return NumberFormatter.format_percentage(0) if total_responses.zero?
 
-    @current_answer_type_counter
+    NumberFormatter.format_percentage(value.to_f / total_responses * 100)
   end
 
-  def value_by_answer_type(answer_type_text)
-    answer_type_int = SurveyResponse.answers[answer_type_text]
-    raise "Invalid answer type" unless answer_type_int
+  def numeric_data(value)
+    "(#{NumberFormatter.with_delimiter(value)})"
+  end
 
+  def truncated_numeric_data(value)
+    "(#{NumberFormatter.truncated(value)})"
+  end
+
+  def counter_truncated?(value)
+    NumberFormatter.truncatable?(value)
+  end
+
+  def value_by_answer_type(answer_type_int)
     survey.response_statistics[answer_type_int.to_s] || 0
   end
 
   def total_responses
     @total_responses ||= response_statistics.values.sum
-  end
-
-  def format_percentage(number)
-    formatted = format("%.2f%%", number)
-    formatted.sub(/\.00%$/, "%")
-  end
-
-  def truncated_current_answer_type_counter
-    formatted_number = number_with_delimiter(current_answer_type_counter)
-    return formatted_number unless current_answer_type_counter_truncatable?
-
-    "..#{formatted_number.split(',').last(3).join(',')}"
   end
 end

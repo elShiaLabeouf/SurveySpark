@@ -1,0 +1,8 @@
+.d-flex.mb-1
+  .d-inline-flex.welcome-sign.text-muted
+    | Items to show:
+  .d-inline-flex.items-per-page-select-container
+    = select_tag "items_per_page",
+                 options_for_select([%w[50 50], %w[500 500], %w[5000 5000]], params[:items_per_page] || "50"),
+                 class: "form-select form-select-sm items-per-page-select",
+                 data: { action: "surveys--index#refreshPage" }

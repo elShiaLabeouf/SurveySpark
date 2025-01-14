@@ -1,0 +1,14 @@
+.container data-controller="surveys--index"
+  .row.mt-5
+    .col-md-12
+      = render partial: "layouts/header"
+      table.table.table-striped.table-bordered.surveys-table data-controller="surveys--index-stream"
+        thead
+          tr
+            th.col-8 Question
+            th.col-1.text-nowrap Answer options
+            th.col-3 Results
+        tbody
+          = render partial: "home/surveys/form", locals: { new_survey: @new_survey, expanded: false }
+          tr.no-surveys-caption
+            td colspan="3" No surveys have been created yet
