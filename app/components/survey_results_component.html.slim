@@ -1,0 +1,19 @@
+= tag.turbo_frame(id: "survey-#{survey.id}-answer-results") do
+  .survey-answers.d-flex.justify-content-between
+    - survey.answers.each do |answer|
+      .survey-answer
+        .survey-answer-percentage = "#{answer[:answer_type].humanize}: #{answer[:percentage_value]}"
+        .survey-answer-numeric[data-controller=("tooltip" if answer[:is_truncated])
+          data-bs-toggle= "tooltip"
+          title= answer[:numeric_value]]
+          = answer[:truncated_numeric_value]
+  .d-flex
+    .progress-stacked.w-100.justify-content-center
+      - survey.answers.each do |answer|
+        .progress[role="progressbar"
+          aria-label="Segment #{answer[:answer_type]}"
+          aria-valuenow=answer[:share_value]
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style="width: #{answer[:percentage_value]}"]
+          .progress-bar class="bg-#{answer[:answer_type]}"

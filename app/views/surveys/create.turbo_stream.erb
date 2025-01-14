@@ -1,2 +1,0 @@
-<%= turbo_stream.after "survey-form-template", partial: "surveys/survey_table_row", locals: { survey: @survey_decorated, extra_class: "fresh-survey-row" } %>
-<%= turbo_stream.replace "survey-form-template", partial: "surveys/form", locals: { new_survey: Survey.new, expanded: true, successful_submit: true } %>

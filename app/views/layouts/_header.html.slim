@@ -1,0 +1,17 @@
+.d-flex.justify-content-between
+  .d-inline-flex.flex-column
+    .d-flex
+      h1
+        | SurveySpark
+        i.bi.bi-feather.ms-1
+    .d-flex
+      p Lead your surveys with ease
+    .d-flex
+      = button_tag 'Create New Survey', type: "button", class: 'btn btn-primary mb-3', data: { "bs-target": '#survey-form-template', "bs-toggle": "collapse" }, "aria-expanded": "false", "aria-controls": "survey-form-template"
+  .d-inline-flex.flex-column.align-items-end
+    .d-flex
+      .d-inline-flex.welcome-sign Welcome,
+      .d-inline-flex = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name", current_user.id), class: "form-select form-select-sm", data: { action: "change->surveys--index#stubUser" }
+    = render partial: "home/surveys/page_mode"
+    = render partial: "home/surveys/items_per_page"
+

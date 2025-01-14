@@ -42,14 +42,6 @@
 .byebug_history
 .idea/
 /node_modules
-/survey_spark_development
-/survey_spark_development-shm
-/survey_spark_development-wal
-/survey_spark_test
-/survey_spark_test-shm
-/survey_spark_test-wal
-/survey_spark_production
-/survey_spark_production-shm
-/survey_spark_production-wal
 
 /config/credentials/production.key
+vendor/local
