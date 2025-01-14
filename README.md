@@ -1,35 +1,32 @@
 # SurveySpark
 
 ## Overview
-SurveySpark is a Ruby on Rails application designed to streamline the process of creating and managing surveys. This guide will help you set up, run, and contribute to the project.
 
-## Prerequisites
-Ensure you have the following installed on your system:
-- [Homebrew](https://brew.sh/)
-- [rbenv](https://github.com/rbenv/rbenv#installation)
-- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install)
+I built this application to test out different ways to render a web-page and compare the performance. Feel free to use it to investigate any technology you find fascinating.
+
+Trivia: SurveySpark is an application designed to streamline the process of creating and managing surveys. This guide will help you set up, run, and contribute to the project.
 
 ## Installation and Running
 
 ### Using Docker (preferred)
 - docker-compose up --build
+- (optional) to add 10 mil records to the database: run `rake import_data:faker_data` from the `surveyspark-web-1` container
 
 ### Using Homebrew and rbenv
 
-0. **Install rbenv and Yarn**:
-    ```bash
-    brew install rbenv
-    brew install yarn
-    ```
-If you have any issues with the steps below, please retry with the following versions: rbenv 1.2.0, yarn 1.22.21
+0. **Ensure you have the following installed on your system**:
+    - [Homebrew](https://brew.sh/)
+    - [rbenv](https://github.com/rbenv/rbenv#installation)
+    - [Yarn](https://classic.yarnpkg.com/lang/en/docs/install)
+    - [PostgreSQL](https://www.postgresql.org/download/macosx/)
 
-1. **Install Ruby 3.2.0**:
+1. **Install Ruby 3.4.1**:
     ```bash
-    rbenv install 3.2.0
-    rbenv local 3.2.0
+    rbenv install 3.4.1
+    rbenv local 3.4.1
     ruby -v
     ```
-   The last line should return the correct ruby version: `ruby 3.2.0 (2022-12-25 revision a528908271) [arm64-darwin22]`
+   The last line should return the correct ruby version: `ruby 3.4.1`
 
 
 2. **Setup SurveySpark**:
@@ -86,4 +83,4 @@ If you have any issues with the steps below, please retry with the following ver
 5. Create a pull request to the `main` branch of the repository
 
 ## Contact
-If you have any questions or need help, feel free to contact us at [dmytro.lomako@gmail.com](mailto:dmytro.lomako@gmail.com) or [dlomako@griddynamics.com](mailto:dlomako@griddynamics.com)
+If you have any questions or need help, feel free to contact me at [dmytro.lomako@gmail.com](mailto:dmytro.lomako@gmail.com)
